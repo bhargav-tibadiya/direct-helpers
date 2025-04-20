@@ -1,0 +1,40 @@
+{
+  "name": "direct-helpers",
+  "version": "1.0.0",
+  "description": "Package with basic and daily utilities",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "keywords": [
+    "utility",
+    "typescript",
+    "string",
+    "number",
+    "micro-utils"
+  ],
+  "homepage": "https://github.com/bhargav-tibadiya/direct-helpers#readme",
+  "bugs": {
+    "url": "https://github.com/bhargav-tibadiya/direct-helpers/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bhargav-tibadiya/direct-helpers.git"
+  },
+  "license": "ISC",
+  "author": "Bhargav Tibadiya",
+  "type": "module",
+  "sideEffects": false,
+  "scripts": {
+    "test": "echo \"No tests yet. Coming soon!\"",
+    "build": "tsup src/index.ts --dts --format cjs,esm --out-dir dist"
+  },
+  "devDependencies": {
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.3"
+  }
+}
