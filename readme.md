@@ -1,11 +1,13 @@
-# Direct Helpers
+# 📦 Direct Helpers
 
 [![npm version](https://img.shields.io/npm/v/direct-helpers.svg)](https://www.npmjs.com/package/direct-helpers)
 [![License](https://img.shields.io/npm/l/direct-helpers.svg)](https://github.com/bhargav-tibadiya/direct-helpers/blob/main/LICENSE)
+[![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)](https://www.typescriptlang.org/)
+[![Bundle Size](https://img.shields.io/badge/bundle%20size-minimal-green.svg)](https://www.npmjs.com/package/direct-helpers)
 
-A lightweight, zero-dependency TypeScript utility library providing a collection of helper functions for common operations.
+A lightweight, zero-dependency TypeScript utility library providing a collection of helper functions for common operations. Perfect for daily development tasks.
 
-## Installation
+## 📥 Installation
 
 ```bash
 # npm
@@ -18,90 +20,123 @@ yarn add direct-helpers
 pnpm add direct-helpers
 ```
 
-## Usage
+## 🚀 Usage
 
 ```typescript
 // Import the entire library
 import * as directHelpers from 'direct-helpers';
 
 // Or import specific modules
-import { stringUtils } from 'direct-helpers';
+import { stringUtils, numberUtils } from 'direct-helpers';
 
-// Or import specific functions
-import { capitalize, toKebabCase } from 'direct-helpers/string';
+// Or import specific functions directly
+import { capitalize } from 'direct-helpers/string';
+import { getRandomNumber } from 'direct-helpers/number';
 
 // Examples
-stringUtils.capitalize('hello'); // 'Hello'
-stringUtils.countWords('hello world'); // 2
+stringUtils.capitalize('hello');        // 'Hello'
+numberUtils.getRandomNumber(1, 100);    // Random number between 1 and 100
 ```
 
-## API Reference
+## 📚 API Reference
+
+### 🔤 String Utilities
+
+| Function | Description | Example |
+|----------|-------------|---------|
+| `capitalize(str)` | Capitalizes the first letter of a string | `capitalize('hello')` → `'Hello'` |
+| `capitalizeWords(str)` | Capitalizes the first letter of each word | `capitalizeWords('hello world')` → `'Hello World'` |
+| `countWords(str)` | Counts the number of words in a string | `countWords('hello world')` → `2` |
+| `countCharacters(str, countWhitespace?)` | Counts characters in a string | `countCharacters('hello world')` → `10` |
+| `toCamelCase(str)` | Converts a string to camel case | `toCamelCase('hello-world')` → `'helloWorld'` |
+| `toKebabCase(str)` | Converts a string to kebab case | `toKebabCase('helloWorld')` → `'hello-world'` |
+| `toSnakeCase(str)` | Converts a string to snake case | `toSnakeCase('helloWorld')` → `'hello_world'` |
+
+### 🔢 Number Utilities
+
+| Function | Description | Example |
+|----------|-------------|---------|
+| `getRandomNumber(min, max)` | Generates a random number between min and max | `getRandomNumber(1, 10)` → `Random number between 1 and 10` |
+| `getOtp(length?, alphaNumeric?)` | Generates a random OTP | `getOtp(6)` → `'123456'` |
+| `countPercentage(part, total, precision?)` | Calculates percentage | `countPercentage(25, 100)` → `25.00` |
+| `isEven(number)` | Checks if a number is even | `isEven(4)` → `true` |
+| `isOdd(number)` | Checks if a number is odd | `isOdd(3)` → `true` |
+| `isPrime(number)` | Checks if a number is prime | `isPrime(7)` → `true` |
+| `isPalindrome(number)` | Checks if a number is a palindrome | `isPalindrome(121)` → `true` |
+| `isPerfectSquare(number)` | Checks if a number is a perfect square | `isPerfectSquare(16)` → `true` |
+| `isPerfectCube(number)` | Checks if a number is a perfect cube | `isPerfectCube(27)` → `true` |
+
+## 📋 Detailed Documentation
 
 ### String Utilities
 
-#### `capitalize(str: string): string`
-Capitalizes the first letter of a string.
-
 ```typescript
-stringUtils.capitalize('hello'); // 'Hello'
+// Capitalize first letter
+stringUtils.capitalize('hello');  // 'Hello'
+
+// Capitalize all words
+stringUtils.capitalizeWords('hello world');  // 'Hello World'
+
+// Count words
+stringUtils.countWords('hello world');  // 2
+
+// Count characters
+stringUtils.countCharacters('hello world');  // 10 (without whitespace)
+stringUtils.countCharacters('hello world', true);  // 11 (with whitespace)
+
+// Convert to camelCase
+stringUtils.toCamelCase('hello-world');  // 'helloWorld'
+
+// Convert to kebab-case
+stringUtils.toKebabCase('helloWorld');  // 'hello-world'
+
+// Convert to snake_case
+stringUtils.toSnakeCase('helloWorld');  // 'hello_world'
 ```
 
-#### `capitalizeWords(str: string): string`
-Capitalizes the first letter of each word in a string.
+### Number Utilities
 
 ```typescript
-stringUtils.capitalizeWords('hello world'); // 'Hello World'
+// Generate random number
+numberUtils.getRandomNumber(1, 100);  // Random number between 1 and 100
+
+// Generate OTP
+numberUtils.getOtp();  // '123456' (default 6-digit numeric)
+numberUtils.getOtp(4);  // '1234' (4-digit numeric)
+numberUtils.getOtp(6, true);  // 'ab3C9z' (alphanumeric)
+
+// Calculate percentage
+numberUtils.countPercentage(25, 100);  // 25.00
+numberUtils.countPercentage(25, 100, 0);  // 25
+
+// Check number properties
+numberUtils.isEven(4);  // true
+numberUtils.isOdd(3);  // true
+numberUtils.isPrime(7);  // true
+numberUtils.isPalindrome(121);  // true
+numberUtils.isPerfectSquare(16);  // true
+numberUtils.isPerfectCube(27);  // true
 ```
 
-#### `countWords(str: string): number`
-Counts the number of words in a string.
-
-```typescript
-stringUtils.countWords('hello world'); // 2
-```
-
-#### `countCharacters(str: string, countWhitespace: boolean = false): number`
-Counts the number of characters in a string.
-
-```typescript
-stringUtils.countCharacters('hello world'); // 10 (without whitespace)
-stringUtils.countCharacters('hello world', true); // 11 (with whitespace)
-```
-
-#### `toCamelCase(str: string): string`
-Converts a string to camel case.
-
-```typescript
-stringUtils.toCamelCase('hello-world'); // 'helloWorld'
-```
-
-#### `toKebabCase(str: string): string`
-Converts a string to kebab case.
-
-```typescript
-stringUtils.toKebabCase('helloWorld'); // 'hello-world'
-```
-
-#### `toSnakeCase(str: string): string`
-Converts a string to snake case.
-
-```typescript
-stringUtils.toSnakeCase('helloWorld'); // 'hello_world'
-```
-
-## Requirements
+## 🖥️ Requirements
 
 - Node.js 14.x or later
 - TypeScript 4.x or later (for TypeScript projects)
 
-## Browser Compatibility
+## 🌐 Browser Compatibility
 
 This package is compatible with modern browsers and Node.js environments.
 
-## Contributing
+## 👥 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-## License
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
 
 ISC © [Bhargav Tibadiya](https://github.com/bhargav-tibadiya)
