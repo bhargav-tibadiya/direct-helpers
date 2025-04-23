@@ -1,13 +1,14 @@
-name: Publish to NPM
+name: Auto Publish to NPM
 
 on:
   push:
-    tags:
-      - 'v*'
+    branches:
+      - main
 
 jobs:
   publish:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -24,7 +25,18 @@ jobs:
       - name: Build package
         run: npm run build
 
+      - name: Bump patch version
+        run: npm version patch --no-git-tag-version
+
       - name: Publish package
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npm publish --access public
+
+      - name: Commit bumped version and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add package.json package-lock.json
+          git commit -m "chore: bump patch version [skip ci]" || echo "No changes to commit"
+          git push
