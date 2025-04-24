@@ -65,6 +65,13 @@ numberUtils.getRandomNumber(1, 100);    // Random number between 1 and 100
 | `isPalindrome(number)` | Checks if a number is a palindrome | `isPalindrome(121)` → `true` |
 | `isPerfectSquare(number)` | Checks if a number is a perfect square | `isPerfectSquare(16)` → `true` |
 | `isPerfectCube(number)` | Checks if a number is a perfect cube | `isPerfectCube(27)` → `true` |
+| `square(number)` | Squares a number | `square(5)` → `25` |
+| `cube(number)` | Cubes a number | `cube(3)` → `27` |
+| `squareRoot(number)` | Calculates the square root of a number | `squareRoot(25)` → `5` |
+| `cubeRoot(number)` | Calculates the cube root of a number | `cubeRoot(27)` → `3` |
+| `factorial(number)` | Calculates the factorial of a number | `factorial(5)` → `120` |
+| `isPowerOfTwo(number)` | Checks if a number is a power of 2 | `isPowerOfTwo(8)` → `true` |
+| `isPowerOfThree(number)` | Checks if a number is a power of 3 | `isPowerOfThree(9)` → `true` |
 
 ## 📋 Detailed Documentation
 
@@ -116,6 +123,17 @@ numberUtils.isPrime(7);  // true
 numberUtils.isPalindrome(121);  // true
 numberUtils.isPerfectSquare(16);  // true
 numberUtils.isPerfectCube(27);  // true
+
+// Mathematical operations
+numberUtils.square(5);  // 25
+numberUtils.cube(3);  // 27
+numberUtils.squareRoot(25);  // 5
+numberUtils.cubeRoot(27);  // 3
+numberUtils.factorial(5);  // 120
+
+// Power checks
+numberUtils.isPowerOfTwo(8);  // true
+numberUtils.isPowerOfThree(9);  // true
 ```
 
 ## 🖥️ Requirements

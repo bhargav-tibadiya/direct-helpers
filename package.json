@@ -1,6 +1,6 @@
 {
   "name": "direct-helpers",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Package with basic and daily utilities",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -31,7 +31,10 @@
   "sideEffects": false,
   "scripts": {
     "test": "echo \"No tests yet. Coming soon!\"",
-    "build": "tsup src/index.ts --dts --format cjs,esm --out-dir dist"
+    "build": "tsup src/index.ts --dts --format cjs,esm --out-dir dist",
+    "version:patch": "npm version patch && git push && git push --follow-tags && npm run build && npm publish",
+    "version:minor": "npm version minor && git push && git push --follow-tags && npm run build && npm publish",
+    "version:major": "npm version major && git push && git push --follow-tags && npm run build && npm publish"
   },
   "devDependencies": {
     "tsup": "^8.4.0",
