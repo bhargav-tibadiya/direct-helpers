@@ -169,3 +169,55 @@ export const isPowerOfTwo = (number: number): boolean => {
 export const isPowerOfThree = (number: number): boolean => {
   return (number & (number - 1)) === 0;
 };
+
+
+/**
+ * Round a number to a specific precision
+ * @param {number} number - The number to round
+ * @param {number} precision - The precision to round to
+ * @returns {number} The rounded number
+ */
+export const roundTo = (number: number, precision: number): number => {
+  return Number(number.toFixed(precision));
+};
+
+
+/**
+ * Formats a number into a string with metric suffixes (K, M, B, T)
+ * and rounds it to a specific precision.
+ * K = Thousand (1e3), M = Million (1e6), B = Billion (1e9), T = Trillion (1e12).
+ *
+ * @param {number} number - The number to format.
+ * @param {number} precision - The number of decimal places to show (non-negative integer).
+ * @returns {string} The formatted number string (e.g., "12.50K", "1.235M", "500.00").
+ */
+export const formatNumberWithSuffix = (number: number, precision: number): string => {
+  if (!isFinite(number) || isNaN(number)) {
+    return number.toString();
+  }
+
+  const resolvedPrecision = Math.max(0, Math.floor(precision));
+
+  const tiers = [
+    { threshold: 1e12, divisor: 1e12, suffix: 'T' },
+    { threshold: 1e9, divisor: 1e9, suffix: 'B' },
+    { threshold: 1e6, divisor: 1e6, suffix: 'M' },
+    { threshold: 1e3, divisor: 1e3, suffix: 'K' },
+    { threshold: 0, divisor: 1, suffix: '' }
+  ];
+
+  const absNumber = Math.abs(number);
+  const tier = tiers.find(t => absNumber >= t.threshold);
+
+  if (!tier) {
+    return number.toFixed(resolvedPrecision);
+  }
+
+  if (number === 0) {
+    return number.toFixed(resolvedPrecision);
+  }
+
+  const scaledNumber = number / tier.divisor;
+  const formattedNumber = scaledNumber.toFixed(resolvedPrecision);
+  return formattedNumber + tier.suffix;
+};

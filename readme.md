@@ -51,6 +51,8 @@ numberUtils.getRandomNumber(1, 100);    // Random number between 1 and 100
 | `toCamelCase(str)` | Converts a string to camel case | `toCamelCase('hello-world')` → `'helloWorld'` |
 | `toKebabCase(str)` | Converts a string to kebab case | `toKebabCase('helloWorld')` → `'hello-world'` |
 | `toSnakeCase(str)` | Converts a string to snake case | `toSnakeCase('helloWorld')` → `'hello_world'` |
+| `toTitleCase(str)` | Converts a string to title case | `toTitleCase('hello world')` → `'Hello World'` |
+| `generatePassword(length, includeSymbols?)` | Generates a random password | `generatePassword(8, true)` → `'X7!bP3@z'` |
 
 ### 🔢 Number Utilities
 
@@ -72,6 +74,8 @@ numberUtils.getRandomNumber(1, 100);    // Random number between 1 and 100
 | `factorial(number)` | Calculates the factorial of a number | `factorial(5)` → `120` |
 | `isPowerOfTwo(number)` | Checks if a number is a power of 2 | `isPowerOfTwo(8)` → `true` |
 | `isPowerOfThree(number)` | Checks if a number is a power of 3 | `isPowerOfThree(9)` → `true` |
+| `roundTo(number, precision)` | Rounds a number to a specific precision | `roundTo(3.14159, 2)` → `3.14` |
+| `formatNumberWithSuffix(number, precision)` | Formats a number with metric suffixes (K, M, B, T) | `formatNumberWithSuffix(1500, 1)` → `'1.5K'` |
 
 ## 📋 Detailed Documentation
 
@@ -99,6 +103,13 @@ stringUtils.toKebabCase('helloWorld');  // 'hello-world'
 
 // Convert to snake_case
 stringUtils.toSnakeCase('helloWorld');  // 'hello_world'
+
+// Convert to title case
+stringUtils.toTitleCase('hello world');  // 'Hello World'
+
+// Generate password
+stringUtils.generatePassword(8);  // 'Xy7Bcd3z' (without symbols)
+stringUtils.generatePassword(8, true);  // 'X7!bP3@z' (with symbols)
 ```
 
 ### Number Utilities
@@ -134,6 +145,11 @@ numberUtils.factorial(5);  // 120
 // Power checks
 numberUtils.isPowerOfTwo(8);  // true
 numberUtils.isPowerOfThree(9);  // true
+
+// Formatting
+numberUtils.roundTo(3.14159, 2);  // 3.14
+numberUtils.formatNumberWithSuffix(1500, 1);  // '1.5K'
+numberUtils.formatNumberWithSuffix(1200000, 2);  // '1.20M'
 ```
 
 ## 🖥️ Requirements
