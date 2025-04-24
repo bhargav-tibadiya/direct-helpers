@@ -90,7 +90,6 @@ export const isPerfectSquare = (number: number): boolean => {
 };
 
 
-
 /**
  * Check if a number is a perfect cube  
  * @param {number} number - The number to check
@@ -98,4 +97,75 @@ export const isPerfectSquare = (number: number): boolean => {
  */
 export const isPerfectCube = (number: number): boolean => {
   return Number.isInteger(Math.cbrt(number));
+};
+
+
+/**
+ * Square a number
+ * @param {number} number - The number to square
+ * @returns {number} The squared number
+ */
+export const square = (number: number): number => {
+  return number * number;
+};
+
+
+/**
+ * Cube a number
+ * @param {number} number - The number to cube
+ * @returns {number} The cubed number
+ */
+export const cube = (number: number): number => {
+  return number * number * number;
+};
+
+
+/**
+ * Square root a number
+ * @param {number} number - The number to square root
+ * @returns {number} The square rooted number
+ */
+export const squareRoot = (number: number): number => {
+  return Math.sqrt(number);
+};
+
+
+/**
+ * Cube root a number 
+ * @param {number} number - The number to cube root
+ * @returns {number} The cube rooted number
+ */
+export const cubeRoot = (number: number): number => {
+  return Math.cbrt(number);
+};
+
+
+/**
+ * Factorial a number
+ * @param {number} number - The number to factorial
+ * @returns {number} The factorialed number
+ */
+export const factorial = (number: number): number => {
+  if (number === 0 || number === 1) return 1;
+  return number * factorial(number - 1);
+};
+
+
+/**
+ * Check if a number is a power of 2
+ * @param {number} number - The number to check
+ * @returns {boolean} Whether the number is a power of 2
+ */
+export const isPowerOfTwo = (number: number): boolean => {
+  return (number & (number - 1)) === 0;
+};
+
+
+/**
+ * Check if a number is a power of 3
+ * @param {number} number - The number to check
+ * @returns {boolean} Whether the number is a power of 3
+ */
+export const isPowerOfThree = (number: number): boolean => {
+  return (number & (number - 1)) === 0;
 };
