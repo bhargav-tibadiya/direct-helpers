@@ -1,6 +1,6 @@
 {
   "name": "direct-helpers",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Package with basic and daily utilities",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
