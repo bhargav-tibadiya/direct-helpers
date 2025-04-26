@@ -74,3 +74,34 @@ export const toSnakeCase = (str: string): string => {
   if (!str) return str;
   return str.replace(/([A-Z])/g, "_$1").toLowerCase();
 };
+
+
+/**
+ * Converts a string to title case
+ * @param {string} str - The string to convert to title case
+ * @returns {string} The title case string
+ */
+export const toTitleCase = (str: string): string => {
+  if (!str) return str;
+  return str.replace(/\b\w/g, (char) => char.toUpperCase());
+};
+
+
+/**
+ * Generates a password with a specific length
+ * @param {number} length - The length of the password
+ * @param {boolean} includeSymbols - Whether to include symbols in the password
+ * @returns {string} The generated password
+ */
+export const generatePassword = (length: number, includeSymbols: boolean = false): string => {
+  let charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  if (includeSymbols) {
+    charset += "!@#$%^&*()_+-=[]{}|;:,.<>?";
+  }
+  let password = "";
+  for (let i = 0; i < length; i++) {
+    const randomIndex = Math.floor(Math.random() * charset.length);
+    password += charset[randomIndex];
+  }
+  return password;
+};
